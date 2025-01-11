@@ -1,0 +1,49 @@
+.calendar-add {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  * {
+    box-sizing: border-box;
+  }
+
+}
+
+.calendar-add__input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.calendar-add__button {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #999;
+  border-radius: 5px;
+}
+
+.calendar-add__button--google {
+  background-color: #007bff;
+  color: white;
+}
+
+.calendar-add__button--outlook {
+  background-color: #000;
+  color: white;
+}
+
+.calendar-add__button--ical {
+  background-color: #999;
+  color: white;
+}
+
+.calendar-add__textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
