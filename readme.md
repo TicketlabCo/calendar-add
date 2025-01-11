@@ -18,7 +18,7 @@ The Calendar Entry Creator is a web component that allows users to create calend
 
 ## Usage
 To use the `calendar-entry-creator` component, include it in your HTML file as follows:
-```
+```html
 <calendar-entry-creator
   event-name="Your Event Name"
   start-time="2023-10-01T10:00:00Z"
