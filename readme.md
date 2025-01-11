@@ -32,6 +32,8 @@ To use the `calendar-entry-creator` component, include it in your HTML file as f
 - **start-time**: The start time of the event in ISO format.
 - **end-time**: The end time of the event in ISO format.
 - **description**: A brief description of the event.
+- **show-add-button**: Component starts with "Add to calendar" button instead of all options
+- **hide-inputs**: hides the input fields/textarea for when the other attributes power the fields and user editing isn't necessary at this stage.
 
 ## Development
 ### File Structure

@@ -5,13 +5,16 @@ class CalendarEntryCreator extends HTMLElement {
     this.shadowRoot.innerHTML = `
       <link rel="stylesheet" href="calendar-styles.css">
       <div class="calendar-add">
-        <input type="text" class="calendar-add__input calendar-add__input--title" id="title" placeholder="Event Title">
-        <input type="datetime-local" class="calendar-add__input calendar-add__input--start-time" id="start-time">
-        <input type="datetime-local" class="calendar-add__input calendar-add__input--end-time" id="end-time">
-        <textarea class="calendar-add__textarea" id="description" placeholder="Description"></textarea>
-        <button class="calendar-add__button calendar-add__button--google" id="create-google">Create in Google Calendar</button>
-        <button class="calendar-add__button calendar-add__button--outlook" id="create-outlook">Create in Outlook Calendar</button>
-        <button class="calendar-add__button calendar-add__button--ical" id="create-ical">Create iCal File</button>
+        <button class="calendar-add__button calendar-add__button--toggle" id="toggle-options">Add to Calendar</button>
+        <div class="calendar-add__options" style="display: none;">
+          <input type="text" class="calendar-add__input calendar-add__input--title" id="title" placeholder="Event Title">
+          <input type="datetime-local" class="calendar-add__input calendar-add__input--start-time" id="start-time">
+          <input type="datetime-local" class="calendar-add__input calendar-add__input--end-time" id="end-time">
+          <textarea class="calendar-add__textarea" id="description" placeholder="Description"></textarea>
+          <button class="calendar-add__button calendar-add__button--google" id="create-google">Create in Google Calendar</button>
+          <button class="calendar-add__button calendar-add__button--outlook" id="create-outlook">Create in Outlook Calendar</button>
+          <button class="calendar-add__button calendar-add__button--ical" id="create-ical">Create iCal File</button>
+        </div>
       </div>
     `;
 
@@ -34,6 +37,28 @@ class CalendarEntryCreator extends HTMLElement {
     this.shadowRoot.getElementById('start-time').value = startTime || '';
     this.shadowRoot.getElementById('end-time').value = endTime || '';
     this.shadowRoot.getElementById('description').value = description || '';
+
+    // Check for the 'show-add-button' attribute
+    if (this.hasAttribute('show-add-button')) {
+      this.shadowRoot.getElementById('toggle-options').style.display = 'flex'; // Show the button
+      this.shadowRoot.querySelector('.calendar-add__options').style.display = 'none'; // Hide the options
+    } else {
+      this.shadowRoot.getElementById('toggle-options').style.display = 'none'; // Hide the button
+      this.shadowRoot.querySelector('.calendar-add__options').style.display = 'flex'; // Show the options
+    }
+
+    // Add event listener for the toggle button
+    this.shadowRoot.getElementById('toggle-options').addEventListener('click', () => {
+      const options = this.shadowRoot.querySelector('.calendar-add__options');
+      options.style.display = options.style.display === 'none' ? 'flex' : 'none'; // Toggle visibility
+    });
+
+    // Check for the 'hide-inputs' attribute
+    if (this.hasAttribute('hide-inputs')) {
+      this.shadowRoot.querySelectorAll('.calendar-add__input, .calendar-add__textarea').forEach(input => {
+        input.style.display = 'none'; // Hide input fields
+      });
+    }
   }
 
   createInGoogleCalendar() {

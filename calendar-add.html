@@ -5,13 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendar Entry Creator</title>
     <script src="calendar-add.js" defer></script>
+    <style>
+      code {
+        display: block;
+        background-color: #f0f0f0;
+        padding: 10px;
+        border-radius: 5px;
+        white-space: pre-wrap;
+      }
+    </style>
 </head>
 <body>
-    <calendar-entry-creator 
-        event-name="Your Event Name" 
-        start-time="2023-10-01T10:00:00" 
-        end-time="2023-10-01T11:00:00" 
-        description="Event Description">
-    </calendar-entry-creator>
+<h1>Calendar Entry Creator</h1>
+
+<h2>Default</h2>
+<code>&lt;calendar-entry-creator&gt;
+&lt;/calendar-entry-creator&gt;
+</code>
+
+<calendar-entry-creator>
+</calendar-entry-creator>
+
+<hr>
+
+<h2>Pre-fill Inputs</h2>
+<code>&lt;calendar-entry-creator 
+  event-name="Your Event Name" 
+  start-time="2023-10-01T10:00:00" 
+  end-time="2023-10-01T11:00:00" 
+  description="Event Description"&gt;
+&lt;/calendar-entry-creator&gt;
+</code>
+
+<calendar-entry-creator 
+  event-name="Your Event Name" 
+  start-time="2023-10-01T10:00:00" 
+  end-time="2023-10-01T11:00:00" 
+  description="Event Description">
+</calendar-entry-creator>
+
+<hr>
+
+<h2>Show Add Button</h2>
+<code>&lt;calendar-entry-creator 
+  show-add-button&gt;
+&lt;/calendar-entry-creator&gt;
+</code>
+
+<calendar-entry-creator 
+  show-add-button>
+</calendar-entry-creator>
+
+<hr>
+
+<h2>Hide Inputs</h2>
+<code>&lt;calendar-entry-creator 
+  hide-inputs&gt;
+&lt;/calendar-entry-creator&gt;
+</code>
+
+<calendar-entry-creator 
+  hide-inputs>
+</calendar-entry-creator>
+
+<hr>
+
+<h2>Hide Inputs and Show Add Button</h2>
+<code>&lt;calendar-entry-creator 
+  hide-inputs
+  show-add-button&gt;
+&lt;/calendar-entry-creator&gt;
+</code>
+
+<calendar-entry-creator 
+  hide-inputs
+  show-add-button>
+</calendar-entry-creator>
 </body>
 </html>
