@@ -1,10 +1,11 @@
 .calendar-add {
-  padding: 10px;
+  margin: 10px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 10px;
+  font-size: 16px;
 
   * {
     box-sizing: border-box;
@@ -13,26 +14,37 @@
 }
 
 .calendar-add__options {
-  display: none;
   width: 100%;
+  max-height: 0px;
+  overflow: hidden;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 10px;
+  display: flex;
+  /* opacity: 0; */
+  transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.3s ease;
+}
+
+.calendar-add__options.show {
+  /* opacity: 1; */
+  max-height: 500px;
 }
 
 .calendar-add__input {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .calendar-add__button {
   width: 100%;
   padding: 10px;
   border: 1px solid #999;
-  border-radius: 5px;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .calendar-add__button--google {
